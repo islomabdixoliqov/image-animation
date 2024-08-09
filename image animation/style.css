@@ -1,0 +1,98 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.image {
+    margin: 10px;
+    position: relative;
+    width: 300px;
+    height: 200px;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+}
+
+.image.image-slide::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-image: linear-gradient(rgba(94, 86, 86, 0.5), rgba(97, 91, 91, 0.5));
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: 0.4s;
+}
+
+.image.image-slide:hover::after {
+    transform: scaleY(1);
+}
+
+.image.image-line::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    left: 0;
+    background-image: linear-gradient(to left, red, rgb(0, 255, 0), rgb(238, 255, 0));
+    height: 5px;
+    bottom: -12px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.4s;
+}
+
+.image.image-line:hover::before {
+    transform: scaleX(1);
+}
+
+.image.image-rgb::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-image: linear-gradient(to left, red, rgb(0, 255, 0), rgb(56, 56, 51));
+    transform: scale(0);
+    transition: 0.8s;
+    border-radius: 50%;
+}
+
+.image.image-rgb:hover::after {
+    transform: scale(1.5);
+}
+
+.image.image-rgb {
+    overflow: hidden;
+}
+
+.image.image-border::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border: 6px solid rgb(102, 102, 102);
+    transition: 0.4s;
+    opacity: 0;
+}
+
+.image.image-border:hover::before {
+    top: calc(4px * -3);
+    right: calc(4px * -3);
+    left: calc(4px * -3);
+    bottom: calc(4px * -3);
+    opacity: 1;
+}
